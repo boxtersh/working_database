@@ -14,7 +14,7 @@ def creating_tables():
     CREATE TABLE IF NOT EXISTS seschool_01_RP12_TYA.habits (
     id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
-    name TINYTEXT NULL,
+    name TINYTEXT NOT NULL,
     frequency ENUM('ежедневно', 'еженедельно', 'ежемесячно', 'ежегодно', 'произвольно') NULL,
     created_at DATE NOT NULL,
     PRIMARY KEY (id))
@@ -24,7 +24,7 @@ def creating_tables():
     id INT NOT NULL AUTO_INCREMENT,
     habits_id INT NOT NULL,
     check_date DATE NOT NULL,
-    note VARCHAR(45) NOT NULL,
+    note VARCHAR(45) NULL,
     INDEX fk_habit_checks_habits_idx (habits_id ASC),
     PRIMARY KEY (id),
     CONSTRAINT fk_habit_checks_habits
